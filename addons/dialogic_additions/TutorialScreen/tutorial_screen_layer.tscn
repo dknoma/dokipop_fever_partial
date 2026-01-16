@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://mdd3wugvqsuw"]
+
+[ext_resource type="Script" uid="uid://bqnq27u6y2lrk" path="res://addons/dialogic_additions/TutorialScreen/TutorialScreenLayer.gd" id="1_pvtfe"]
+
+[node name="TutorialScreenLayer" type="Node" groups=["tutorial_screen"]]
+script = ExtResource("1_pvtfe")
+metadata/_custom_type_script = "uid://bqnq27u6y2lrk"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 9

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://byyctarpr0ajc"]
+
+[ext_resource type="Script" uid="uid://con3yir877hy" path="res://scripts/test_scene.gd" id="1_p46nm"]
+[ext_resource type="Texture2D" uid="uid://ks35ujtkgv4a" path="res://icon.svg" id="1_vhqy7"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_p46nm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_vhqy7")
+
+[node name="Camera2D" type="Camera2D" parent="."]

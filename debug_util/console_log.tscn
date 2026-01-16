@@ -1,0 +1,88 @@
+[gd_scene load_steps=3 format=3 uid="uid://cehkkcjfrskvy"]
+
+[ext_resource type="Script" uid="uid://bm8onqpro7bmp" path="res://debug_util/DebugConsole.gd" id="1_g6tn1"]
+[ext_resource type="Script" uid="uid://c3qnlu24lp74f" path="res://debug_util/ConsoleWindow.gd" id="2_g6tn1"]
+
+[node name="Control" type="Control" node_paths=PackedStringArray("window", "output")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_g6tn1")
+window = NodePath("Window")
+output = NodePath("Window/PanelContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/ConsoleOutput")
+metadata/_edit_use_anchors_ = true
+
+[node name="VSplitContainer" type="VSplitContainer" parent="."]
+visible = false
+layout_mode = 2
+offset_right = 512.0
+offset_bottom = 648.0
+
+[node name="Control" type="Control" parent="VSplitContainer"]
+layout_mode = 2
+
+[node name="Window" type="Window" parent="."]
+size = Vector2i(500, 500)
+wrap_controls = true
+min_size = Vector2i(100, 100)
+script = ExtResource("2_g6tn1")
+
+[node name="PanelContainer" type="PanelContainer" parent="Window"]
+z_index = 1000
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Window/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Window/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Window/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Window/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Window/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 2
+
+[node name="Label" type="RichTextLabel" parent="Window/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "Console Log"
+fit_content = true
+
+[node name="Button" type="Button" parent="Window/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "_"
+
+[node name="Panel" type="PanelContainer" parent="Window/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Window/PanelContainer/MarginContainer/VBoxContainer/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="ConsoleOutput" type="RichTextLabel" parent="Window/PanelContainer/MarginContainer/VBoxContainer/Panel/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+scroll_following = true
